@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
 using RestSharp;
 using System;
-using System.Threading.Tasks;
 
 namespace ComponentLibrary
 {
@@ -30,7 +29,6 @@ namespace ComponentLibrary
 			makeWebRequest(_endPoint, _requestUrl);
 			Console.WriteLine(_requestObject);
 
-
 			// Get ref to XAML, add person to the main page & draw it
 			this._pageRoot = this.FindByName<StackLayout>("StackLayout_comp");
 			this._pageRoot.Children.Add(createPerson());            // Local
@@ -38,38 +36,38 @@ namespace ComponentLibrary
 		}
 
 
-
 		/// <summary>
 		/// Create a person (StackLayout) from local data
 		/// </summary>
 		/// <returns>The person.</returns>
-		private StackLayout createPerson() { 
+		private StackLayout createPerson() 
+		{ 
 			// Create a new component from Component.cs library
-			_component  = new Component();
-			var myPerson = _component.personComp;
+			_component   = new Component();
+			var myPerson = _component.personContainer;
 
 			// Add all of the components needed for a person
-			myPerson.Children.Add(_component.nameComp(_component._name));
-			myPerson.Children.Add(_component.roleComp(_component._role));
+			myPerson.Children.Add(_component.nameComp(_component._name	   ));
+			myPerson.Children.Add(_component.roleComp(_component._role	   ));
 			myPerson.Children.Add(_component.photoComp(_component._imageUri));
 
 			return myPerson;
 		}
 
 
-
 		/// <summary>
 		/// Create a person (StackLayout) from API data
 		/// </summary>
-		private View createStarWarsPerson() { 
+		private View createStarWarsPerson()
+		{ 
 			_component  = new Component();
-			var myPerson = _component.personComp;
+			var myPerson = _component.personContainer;
 
 			Console.WriteLine(_starWarsObject);
 
 			// Add all of the components needed for a person
-			myPerson.Children.Add(_component.nameComp(_starWarsObject.name));
-			myPerson.Children.Add(_component.roleComp(_component._role));
+			myPerson.Children.Add(_component.nameComp(_starWarsObject.name ));
+			myPerson.Children.Add(_component.roleComp(_component._role     ));
 			myPerson.Children.Add(_component.photoComp(_component._imageUri));
 
 			return myPerson;
@@ -79,14 +77,14 @@ namespace ComponentLibrary
 		/// <summary>
 		/// Retrieve JSON data from http request
 		/// </summary>
-		 public void makeStarWarsWebRequest() { 
+	    public void makeStarWarsWebRequest()
+		{ 
 			var client      = new RestClient("http://swapi.co/api/");
 			var request     = new RestRequest("people/1", Method.GET);
 
 			// Automatically deserialize result
-			// return content type is sniffed but can be explicitly set via RestClient.AddHandler();
 			IRestResponse<StarWarsObject> response2 = client.Execute<StarWarsObject>(request);
-			_starWarsObject = response2.Data;
+			_starWarsObject 					    = response2.Data;
 		}
 
 
@@ -95,13 +93,12 @@ namespace ComponentLibrary
 		/// </summary>
 		public void makeWebRequest(string endPoint, string requestUrl)
 		{
-			var client = new RestClient(endPoint);
+			var client  = new RestClient(endPoint);
 			var request = new RestRequest(requestUrl, Method.POST);
 
 			// Automatically deserialize result
-			// return content type is sniffed but can be explicitly set via RestClient.AddHandler();
 			IRestResponse<StarWarsObject> response2 = client.Execute<StarWarsObject>(request);
-			_starWarsObject = response2.Data;
+			_starWarsObject 						= response2.Data;
 		}
 	}
 }

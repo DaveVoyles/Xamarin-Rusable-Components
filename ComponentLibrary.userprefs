@@ -1,10 +1,9 @@
 ﻿<Properties StartupConfiguration="{D4E943FD-0EF3-4D3B-BE2F-EFA1D13156AC}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="ComponentLibrary/ComponentLibraryPage.xaml.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ComponentLibrary/RequestObject.cs">
     <Files>
-      <File FileName="ComponentLibrary/ComponentLibraryPage.xaml.cs" Line="34" Column="3" />
-      <File FileName="ComponentLibrary/Component.cs" Line="10" Column="38" />
-      <File FileName="ComponentLibrary/StarWarsObject.cs" Line="12" Column="36" />
-      <File FileName="ComponentLibrary/RequestObject.cs" Line="8" Column="4" />
+      <File FileName="ComponentLibrary/ComponentLibraryPage.xaml.cs" Line="30" Column="43" />
+      <File FileName="ComponentLibrary/Component.cs" Line="73" Column="6" />
+      <File FileName="ComponentLibrary/RequestObject.cs" Line="9" Column="13" />
       <File FileName="ComponentLibrary/ComponentLibraryPage.xaml" Line="5" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
