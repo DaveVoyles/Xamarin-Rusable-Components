@@ -8,28 +8,33 @@ namespace ComponentLibrary
 	public partial class ComponentLibraryPage : ContentPage
 	{
 		// Root of page where everything will be drawn to
-		StackLayout PageRoot;
-		Component myComponent;
+		StackLayout _pageRoot;
+		Component   _component;
 
 		// Massaged instance
-		StarWarsObject starWarsObject;
+		StarWarsObject _starWarsObject;
+		RequestObject  _requestObject;
 
 		// API authentication
-		string endPoint   = "";
-		string requestUrl = "";
+		string _endPoint   = "";
+		string _requestUrl = "";
 
 
 		public ComponentLibraryPage()
 		{
 			InitializeComponent();
+
+			// Web requests
 			makeStarWarsWebRequest();
-			Console.WriteLine(starWarsObject.name);
+			Console.WriteLine(_starWarsObject.name);
+			makeWebRequest(_endPoint, _requestUrl);
+			Console.WriteLine(_requestObject);
 
 
-			// Add person to the main page & draw it
-			this.PageRoot = this.FindByName<StackLayout>("StackLayout_comp");
-			this.PageRoot.Children.Add(createPerson());            // Local
-			this.PageRoot.Children.Add(createStarWarsPerson());    // Star Wars API
+			// Get ref to XAML, add person to the main page & draw it
+			this._pageRoot = this.FindByName<StackLayout>("StackLayout_comp");
+			this._pageRoot.Children.Add(createPerson());            // Local
+			this._pageRoot.Children.Add(createStarWarsPerson());    // Star Wars API
 		}
 
 
@@ -40,13 +45,13 @@ namespace ComponentLibrary
 		/// <returns>The person.</returns>
 		private StackLayout createPerson() { 
 			// Create a new component from Component.cs library
-			myComponent  = new Component();
-			var myPerson = myComponent.personComp;
+			_component  = new Component();
+			var myPerson = _component.personComp;
 
 			// Add all of the components needed for a person
-			myPerson.Children.Add(myComponent.nameComp(myComponent._name));
-			myPerson.Children.Add(myComponent.roleComp(myComponent._role));
-			myPerson.Children.Add(myComponent.photoComp(myComponent._imageUri));
+			myPerson.Children.Add(_component.nameComp(_component._name));
+			myPerson.Children.Add(_component.roleComp(_component._role));
+			myPerson.Children.Add(_component.photoComp(_component._imageUri));
 
 			return myPerson;
 		}
@@ -57,15 +62,15 @@ namespace ComponentLibrary
 		/// Create a person (StackLayout) from API data
 		/// </summary>
 		private View createStarWarsPerson() { 
-			myComponent  = new Component();
-			var myPerson = myComponent.personComp;
+			_component  = new Component();
+			var myPerson = _component.personComp;
 
-			Console.WriteLine(starWarsObject);
+			Console.WriteLine(_starWarsObject);
 
 			// Add all of the components needed for a person
-			myPerson.Children.Add(myComponent.nameComp(starWarsObject.name));
-			myPerson.Children.Add(myComponent.roleComp(myComponent._role));
-			myPerson.Children.Add(myComponent.photoComp(myComponent._imageUri));
+			myPerson.Children.Add(_component.nameComp(_starWarsObject.name));
+			myPerson.Children.Add(_component.roleComp(_component._role));
+			myPerson.Children.Add(_component.photoComp(_component._imageUri));
 
 			return myPerson;
 		}
@@ -81,22 +86,22 @@ namespace ComponentLibrary
 			// Automatically deserialize result
 			// return content type is sniffed but can be explicitly set via RestClient.AddHandler();
 			IRestResponse<StarWarsObject> response2 = client.Execute<StarWarsObject>(request);
-			starWarsObject = response2.Data;
+			_starWarsObject = response2.Data;
 		}
 
 
 		/// <summary>
 		/// MUST MAKE POST REQUEST
 		/// </summary>
-		public void makeWebRequest()
+		public void makeWebRequest(string endPoint, string requestUrl)
 		{
-			var client = new RestClient("http://swapi.co/api/");
-			var request = new RestRequest("people/1", Method.POST);
+			var client = new RestClient(endPoint);
+			var request = new RestRequest(requestUrl, Method.POST);
 
 			// Automatically deserialize result
 			// return content type is sniffed but can be explicitly set via RestClient.AddHandler();
 			IRestResponse<StarWarsObject> response2 = client.Execute<StarWarsObject>(request);
-			starWarsObject = response2.Data;
+			_starWarsObject = response2.Data;
 		}
 	}
 }
