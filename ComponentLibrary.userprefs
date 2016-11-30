@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{D4E943FD-0EF3-4D3B-BE2F-EFA1D13156AC}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ComponentLibrary/ComponentLibraryPage.xaml.cs">
+    <Files>
+      <File FileName="ComponentLibrary/ComponentLibraryPage.xaml.cs" Line="16" Column="4" />
+      <File FileName="ComponentLibrary/Component.cs" Line="16" Column="5" />
+      <File FileName="ComponentLibrary/RootObject.cs" Line="17" Column="3" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhoneSimulator" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.ComponentLibrary.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.7F57D846-6393-41FE-ACD7-53A8287A6508" />
+</Properties>
