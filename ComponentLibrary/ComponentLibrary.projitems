@@ -20,7 +20,7 @@
       <DependentUpon>ComponentLibraryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Component.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)RootObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StarWarsObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Img\" />

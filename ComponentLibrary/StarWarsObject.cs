@@ -2,7 +2,10 @@
 
 namespace ComponentLibrary
 {
-	public class RootObject
+	/// <summary>
+	/// Deserialize objects from Star Wars API: https://swapi.co/
+	/// </summary>
+	public class StarWarsObject
 	{
 			public string name { get; set; }
 			public string height { get; set; }
