@@ -45,5 +45,13 @@ You will also need to uncomment this:
 
 There are additional instructions in the Component.cs file as well.
 
+The top "component" here is just using local data. The second component is using data pulled down from the API. 
+
+
+
+Inline-style: 
+![Morbo](https://www.dropbox.com/s/e78rqr64q7fe6dq/Morbo-Xamarin-Reusable-Components.png?raw=1 "Morbo Xamarin")
+
+
 
   [1]: http://www.daveVoyles.com "My website"
