@@ -25,7 +25,7 @@ I've tested this on iOS and Android and both work fine.
 
 I'm making one call to the [Star Wars API](https://swapi.co/), simply to show how pulling data from an API works. The name and role of a character is set using this data. 
 
-When you are ready, pass in the crednetials in the ComponentLibraryPage.cs class by placing them in the API credentials section:
+When you are ready with your own API, pass in the credentials in the ComponentLibraryPage.cs class by placing them in the API credentials section:
 
 ```Javascript
 		// API CREDENTIALS
